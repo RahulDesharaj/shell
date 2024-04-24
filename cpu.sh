@@ -9,7 +9,7 @@ N="\e[0m"
 
 MAX_CPU_USAGE=20
 
-CPU_USAGE=$(ps -eo pid,comm,%cpu --sort=-%cpu | head -n 5)
+CPU_USAGE=$(top -bn1 | grep load | awk '{printf "%.0f\n", $(NF-2)}')
 
 
 # if [ "$CPU_USAGE" -ge "$MAX_CPU_USAGE" ] ; 
