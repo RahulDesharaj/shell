@@ -1,10 +1,9 @@
 #!/bin/bash
 echo "display the top 5 cpu consuming process in linux server"
-sudo su -
 ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 5
 
 # Set the Discord webhook URL
-
+ 
 
 MAX_CPU_USAGE=40
 
