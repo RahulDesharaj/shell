@@ -23,7 +23,7 @@ N="\e[0m"
 
 # fi
 
-CPU_USAGE=$(ps | head -n 5)
+CPU_USAGE=$(top -b -n 1 | awk '{if ($9 > 10) print}')
 
 MAX_CPU_USAGE=20
 
