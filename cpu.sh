@@ -23,7 +23,7 @@ N="\e[0m"
 
 # fi
 
-NUMBER=$(watch "ps aux | sort -nrk 3,3 | head -n 5")
+NUMBER=$(sar -u 5)
 
 if [ $NUMBER -gt 10 ]
 then
