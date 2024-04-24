@@ -28,7 +28,7 @@ CPU_USAGE=$(ps | head -n 5)
 MAX_CPU_USAGE=20
 
 #if [ $NCPU_USAGE -gt 10 ]
-if [ "$CPU_USAGE" -ge "$MAX_CPU_USAGE" ] ; then
+if [ "$CPU_USAGE" -ge "$MAX_CPU_USAGE" ] ; 
 then
     echo  -e "$R CPU usage is HIGH $N"
 else
