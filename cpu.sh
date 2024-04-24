@@ -11,7 +11,7 @@ CPU_USAGE=$(ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 5)
 
 MAX_CPU_USAGE=90
 # Check if the CPU usage is above the threshold
-if [ "$CPU_USAGE" -ge 5 "$MAX_CPU_USAGE" ] 
+if [ $CPU_USAGE" -ge 5 "$MAX_CPU_USAGE ] 
 then
     # Construct the message to send to Discord
     
