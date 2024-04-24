@@ -14,7 +14,7 @@ MAX_CPU_USAGE=05
 
 
 
-if [ "$CPU_USAGE" -ge "$MAX_CPU_USAGE" ]  
+if [ "$CPU_USAGE" -lt "$MAX_CPU_USAGE" ]  
 then
     # Construct the message to send to Discord
     
