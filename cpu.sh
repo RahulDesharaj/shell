@@ -7,34 +7,26 @@ G="\e[32m"
 
 N="\e[0m"
 
-#CPU_USAGE=$(ps --sort=-pcpu | head -n 6)
-
-
-# if [ $CPU_USAGE -gt 10 ]
-
-# then
-#     # Construct the message to send to Discord
-    
-#     echo  -e "$R CPU usage is HIGH $N"
-#     exit 1
-# else
-    
-#     echo  -e "$G CPU usage is NORMAL $N"
-
-# fi
 MAX_CPU_USAGE=20
 
-CPU_USAGE=$(top -bn2 | awk -v "max_cpu=$MAX_CPU_USAGE" '/^%Cpu/ { idle=$8 } END { if((100-idle)>max_cpu) exit 1 }')
+CPU_USAGE=$(ps -eo pid,comm,%cpu --sort=-%cpu | head -n 5)
 
 
+# if [ "$CPU_USAGE" -ge "$MAX_CPU_USAGE" ] ; 
+# then
+#     echo  -e "$R CPU usage is HIGH $N"
+# else
+#     echo  -e "$G CPU usage is NORMAL $N" 
+# fi
 
 
+while :
+do
+        sleep 5
+        echo $CPU_USAGE
+        if [ $CPU_USAGE -gt 1 ]
+        then
+        echo  -e "$R CPU usage is HIGH $N"
+        fi
 
-
-#if [ $NCPU_USAGE -gt 10 ]
-if [ "$CPU_USAGE" -ge "$MAX_CPU_USAGE" ] ; 
-then
-    echo  -e "$R CPU usage is HIGH $N"
-else
-    echo  -e "$G CPU usage is NORMAL $N" 
-fi
+done
