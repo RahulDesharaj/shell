@@ -23,7 +23,7 @@ N="\e[0m"
 
 # fi
 
-NUMBER=$(ps --sort=-pcpu | head -n 6)
+NUMBER=$(top -o cpu -n 5)
 
 if [ $NUMBER -gt 10 ]
 then
