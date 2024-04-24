@@ -9,7 +9,7 @@ N="\e[0m"
 
 CPU_USAGE=$(ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 5)
 
-MAX_CPU_USAGE=90
+MAX_CPU_USAGE=10
 # Check if the CPU usage is above the threshold
 if [ $CPU_USAGE" -ge  "$MAX_CPU_USAGE ] 
 then
