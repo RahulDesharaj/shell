@@ -24,7 +24,7 @@ while :
 do
         sleep 5
         echo $CPU_USAGE
-        if [ $CPU_USAGE -gt 1 ]
+        if [ "$CPU_USAGE" -ge "$MAX_CPU_USAGE" ]
         then
         echo  -e "$R CPU usage is HIGH $N"
         fi
