@@ -23,7 +23,8 @@ N="\e[0m"
 
 # fi
 
-CPU_USAGE=$(ps -ef | awk -v vGRP="$vGRP" '$vGRP~/$2/ {print $2, "\t", $4 }')
+CPU_USAGE=$(top -bn2 | grep '%Cpu' | tail -1 | grep -P '(....|...) id,'|awk '{print 100-$8}')
+
 
 MAX_CPU_USAGE=20
 
