@@ -22,11 +22,14 @@ N="\e[0m"
 #     echo  -e "$G CPU usage is NORMAL $N"
 
 # fi
-
-CPU_USAGE=$(top -bn2 | grep '%Cpu' | tail -1 | grep -P '(....|...) id,'|awk '{print 100-$8}')
-
-
 MAX_CPU_USAGE=20
+
+CPU_USAGE=$(top -bn2 | awk -v "max_cpu=$MAX_CPU_USAGE" '/^%Cpu/ { idle=$8 } END { if((100-idle)>max_cpu) exit 1 }')
+
+
+
+
+
 
 #if [ $NCPU_USAGE -gt 10 ]
 if [ "$CPU_USAGE" -ge "$MAX_CPU_USAGE" ] ; 
